@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aws-devops-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: aws-devops-demo
+  template:
+    metadata:
+      labels:
+        app: aws-devops-demo
+    spec:
+      containers:
+        - name: aws-devops-demo
+          image: discoverdevops/aws-devops-demo:latest
+          ports:
+            - containerPort: 80
